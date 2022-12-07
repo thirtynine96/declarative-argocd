@@ -1,10 +1,11 @@
+# 원래 코드임.
 server:
   additionalApplications:
   - name: app-of-app
     namespace: argocd
     project: default
     source:
-      repoURL: https://github.com/umi0410/declarative-argocd.git
+      repoURL: https://github.com/thirtynine96/declarative-argocd.git
       targetRevision: HEAD
       path: getting-started/argocd
     destination:
@@ -16,3 +17,46 @@ server:
       #automated:
       #  selfHeal: true
       #  prune: true
+
+
+# 새로 추가해서 테스트 성공한 것.
+# argocd-apps:
+#   # extensions:
+#   #   - name: argo-rollouts
+#   #     namespace: argo
+#   #     additionalLabels: {}
+#   #     additionalAnnotations: {}
+#   #     sources:
+#   #       - web:
+#   #           url: https://github.com/argoproj-labs/rollout-extension/releases/download/v0.2.0/extension.tar
+
+#   applications:
+#     - name: app-of-app
+#       namespace: argocd
+#       additionalLabels: {}
+#       additionalAnnotations: {}
+#       # finalizers:
+#       # - resources-finalizer.argocd.argoproj.io
+#       project: default
+#       source:
+#         repoURL: https://github.com/thirtynine96/declarative-argocd.git
+#         targetRevision: HEAD
+#         path: getting-started/argocd
+#         directory:
+#           recurse: true
+#       destination:
+#         server: https://kubernetes.default.svc
+#         namespace: default
+#       syncPolicy:
+#         automated:
+#           prune: false
+#           selfHeal: false
+#       ignoreDifferences:
+#       - group: apps
+#         kind: Deployment
+#         jsonPointers:
+#         - /spec/replicas
+#       info:
+#       - name: url
+#         value: https://argoproj.github.io/
+
