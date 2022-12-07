@@ -6,7 +6,7 @@ metadata:
   finalizers: []
 spec:
   destination:
-    namespace: helm-guestbook
+    namespace: appsample
     server: https://kubernetes.default.svc
   project: default
   source:
